@@ -26,8 +26,6 @@ public class CobWeb {
                 node.getCells().removeIf(cell -> cell == record);
             }
 
-            //bestScore = geBestScore(CategoryUtilities, key);
-
             bestScore = CategoryUtilities.get(0);
             for (int k = 0; k < CategoryUtilities.size(); k++) {
                 if (bestScore < CategoryUtilities.get(k)) {
@@ -63,20 +61,22 @@ public class CobWeb {
 
     static Double nodeProbabilites(Node cluster) {
         Integer listSize = cluster.getCells().size();
-        return Math.pow(countLight(cluster) / listSize, 2) +
+        double result = Math.pow(countLight(cluster) / listSize, 2) +
                 Math.pow(countDark(cluster) / listSize, 2) +
                 Math.pow(countSingleTail(cluster) / listSize, 2) +
                 Math.pow(countDoubleTail(cluster) / listSize, 2) +
                 Math.pow(countOneCore(cluster) / listSize, 2) +
                 Math.pow(countMultiCore(cluster) / listSize, 2);
+
+        return result;
     }
 
     static Double countLight(Node cluster) {
-        return countCells(cluster, c -> c.getColor() == Colors.LIGHT);
+        return countCells(cluster, c -> c.getColor() == Colors.WHITE);
     }
 
     static Double countDark(Node cluster) {
-        return countCells(cluster, c -> c.getColor() == Colors.DARK);
+        return countCells(cluster, c -> c.getColor() == Colors.BLACK);
     }
 
     static Double countSingleTail(Node cluster) {

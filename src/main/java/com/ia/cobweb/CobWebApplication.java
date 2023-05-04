@@ -9,10 +9,10 @@ public class CobWebApplication {
 		SpringApplication.run(CobWebApplication.class, args);
 
 		Node root = new Node();
-		root.addCell(new Cell(Colors.LIGHT, Tails.SINGLE, 1));
-		CobWeb.cobweb(root, new Cell(Colors.DARK, Tails.DOUBLE, 2));
-		CobWeb.cobweb(root, new Cell(Colors.LIGHT, Tails.SINGLE, 2));
-		//adicionando uma celular dark double
+		root.addCell(new Cell(Colors.WHITE, Tails.SINGLE, 1));
+		CobWeb.cobweb(root, new Cell(Colors.BLACK, Tails.DOUBLE, 2));
+		CobWeb.cobweb(root, new Cell(Colors.WHITE, Tails.SINGLE, 2));
+		//adicionando uma celular BLACK double
 		//CobWeb.cobweb(root, new Cell(Colors.DARK, Tails.DOUBLE, 2));
 
 		System.out.println("Arvore principal: " + root.toString());
